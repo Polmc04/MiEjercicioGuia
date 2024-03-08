@@ -105,3 +105,13 @@ F:\Julio2018\Docencia\SO\2021-2022Q2\EjercicioGuiaEnGitHub\LaAplicacionAlInicio\
 F:\Julio2018\Docencia\SO\2021-2022Q2\EjercicioGuiaEnGitHub\LaAplicacionAlInicio\cliente_inicial\WindowsFormsApplication1\obj\Debug\clienteForm.csproj.CoreCompileInputs.cache
 F:\Julio2018\Docencia\SO\2021-2022Q2\EjercicioGuiaEnGitHub\LaAplicacionAlInicio\cliente_inicial\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 F:\Julio2018\Docencia\SO\2021-2022Q2\EjercicioGuiaEnGitHub\LaAplicacionAlInicio\cliente_inicial\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\polmi\OneDrive\Escritorio\Uni\Q4\SO\4\EjercicioGuia\MiEjercicioGuia\clienteEjercicioGuia\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\polmi\OneDrive\Escritorio\Uni\Q4\SO\4\EjercicioGuia\MiEjercicioGuia\clienteEjercicioGuia\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\polmi\OneDrive\Escritorio\Uni\Q4\SO\4\EjercicioGuia\MiEjercicioGuia\clienteEjercicioGuia\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\polmi\OneDrive\Escritorio\Uni\Q4\SO\4\EjercicioGuia\MiEjercicioGuia\clienteEjercicioGuia\WindowsFormsApplication1\obj\Debug\clienteForm.csproj.AssemblyReference.cache
+C:\Users\polmi\OneDrive\Escritorio\Uni\Q4\SO\4\EjercicioGuia\MiEjercicioGuia\clienteEjercicioGuia\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\polmi\OneDrive\Escritorio\Uni\Q4\SO\4\EjercicioGuia\MiEjercicioGuia\clienteEjercicioGuia\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\polmi\OneDrive\Escritorio\Uni\Q4\SO\4\EjercicioGuia\MiEjercicioGuia\clienteEjercicioGuia\WindowsFormsApplication1\obj\Debug\clienteForm.csproj.GenerateResource.cache
+C:\Users\polmi\OneDrive\Escritorio\Uni\Q4\SO\4\EjercicioGuia\MiEjercicioGuia\clienteEjercicioGuia\WindowsFormsApplication1\obj\Debug\clienteForm.csproj.CoreCompileInputs.cache
+C:\Users\polmi\OneDrive\Escritorio\Uni\Q4\SO\4\EjercicioGuia\MiEjercicioGuia\clienteEjercicioGuia\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\polmi\OneDrive\Escritorio\Uni\Q4\SO\4\EjercicioGuia\MiEjercicioGuia\clienteEjercicioGuia\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
