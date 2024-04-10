@@ -5,40 +5,20 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <stdio.h>
-
-int main(int argc, char *argv[])
+#include <pthread.h>
+void *AtenderCliente(void *socket)
 {
-	int sock_conn, sock_listen, ret;
-	struct sockaddr_in serv_adr;
+	int sock_conn;
+	int *s;
+	s = (int *) socket;
+	sock_conn = *s;
+
 	char peticion[512];
 	char respuesta[512];
-	// INICIALITZACIONS
-	// Obrim el socket
-	if ((sock_listen = socket(AF_INET, SOCK_STREAM, 0)) < 0)
-		printf("Error creant socket");
-	// Fem el bind al port
-	memset(&serv_adr, 0, sizeof(serv_adr));// inicialitza a zero serv_addr
-	serv_adr.sin_family = AF_INET;
-	// asocia el socket a cualquiera de las IP de la m?quina. 
-	//htonl formatea el numero que recibe al formato necesario
-	serv_adr.sin_addr.s_addr = htonl(INADDR_ANY);
-	// escucharemos en el port 9050
-	serv_adr.sin_port = htons(9050);
-	if (bind(sock_listen, (struct sockaddr *) &serv_adr, sizeof(serv_adr)) < 0)
-		printf ("Error al bind");
-	//La cola de peticiones pendientes no podra ser superior a 4
-	if (listen(sock_listen, 4) < 0)
-		printf("Error en el Listen");
-	int i;
-	// Atenderemos solo 10 peticione
-	for(;;){
-		printf ("Escuchando\n");
-		
-		sock_conn = accept(sock_listen, NULL, NULL);
-		printf ("He recibido conexion\n");
-		//sock_conn es el socket que usaremos para este cliente
-		
-		// Bucle de atencion al cliente
+
+	int ret;
+
+	// Bucle de atencion al cliente
 		int terminar = 0;
 		while (terminar == 0)
 		{
@@ -92,5 +72,49 @@ int main(int argc, char *argv[])
 		}
 		// Se acabo el servicio para este cliente
 		close(sock_conn);	
+		printf("Check");
+}
+int main(int argc, char *argv[])
+{
+	int sock_conn, sock_listen;
+	struct sockaddr_in serv_adr;
+	
+	// INICIALITZACIONS
+	// Obrim el socket
+	if ((sock_listen = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+		printf("Error creant socket");
+
+	// Fem el bind al port
+	memset(&serv_adr, 0, sizeof(serv_adr));// inicialitza a zero serv_addr
+	serv_adr.sin_family = AF_INET;
+	// asocia el socket a cualquiera de las IP de la maquina.
+
+	//htonl formatea el numero que recibe al formato necesario
+	serv_adr.sin_addr.s_addr = htonl(INADDR_ANY);
+
+	// escucharemos en el port 9050
+	serv_adr.sin_port = htons(9060);
+
+	if (bind(sock_listen, (struct sockaddr *) &serv_adr, sizeof(serv_adr)) < 0)
+		printf ("Error al bind\n");
+
+	//La cola de peticiones pendientes no podra ser superior a 4
+	if (listen(sock_listen, 4) < 0)
+		printf("Error en el Listen\n");
+
+	int i;
+	int sockets[100];
+	pthread_t thread;
+
+	for(;;){ // Bucle infinito -> infinitas peticiones
+		printf ("Escuchando\n");
+		
+		sock_conn = accept(sock_listen, NULL, NULL);
+		printf ("He recibido conexion\n");
+		//sock_conn es el socket que usaremos para este cliente
+		
+		sockets[i] = sock_conn;
+		pthread_create (&thread, NULL, AtenderCliente, &sockets[i]);
+		
 	}
 }

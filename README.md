@@ -3,3 +3,4 @@
 
 VersionconConexionDesconexion
 Version2
+VersionExlusionMutua
