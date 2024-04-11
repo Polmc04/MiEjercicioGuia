@@ -109,6 +109,20 @@ namespace WindowsFormsApplication1
             server.Close();
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            // Enviamos nombre y altura
+            string mensaje = "4/";
+            // Convertimos a Byte para envair al server
+            byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
+            server.Send(msg);
+
+            // Recibimos respuesta del server
+            byte[] msg2 = new byte[80];
+            server.Receive(msg2);
+            mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0]; // Convertimos a ASCII
+            labelServicios.Text = mensaje; // Mostramos el mensaje
+        }
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -130,5 +144,11 @@ namespace WindowsFormsApplication1
 
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

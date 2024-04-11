@@ -6,6 +6,12 @@
 #include <netinet/in.h>
 #include <stdio.h>
 #include <pthread.h>
+
+int contador;
+
+// Evita errores de threads
+pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+
 void *AtenderCliente(void *socket)
 {
 	int sock_conn;
@@ -36,7 +42,7 @@ void *AtenderCliente(void *socket)
 			int codigo =  atoi (p);
 			char nombre[20];
 
-			if(codigo != 0){
+			if(codigo != 0 && codigo != 4){
 				p = strtok( NULL, "/");
 				strcpy (nombre, p);
 				printf ("Codigo: %d, Nombre: %s\n", codigo, nombre);
@@ -44,6 +50,8 @@ void *AtenderCliente(void *socket)
 			else printf ("Codigo: %d\n", codigo);
 
 			if (codigo == 0) terminar = 1;
+			else if (codigo == 4) 
+				sprintf (respuesta,"%d", contador);
 			else if (codigo == 1) //piden la longitd del nombre
 				sprintf (respuesta,"%d",strlen (nombre));
 			else if (codigo == 2)
@@ -69,6 +77,13 @@ void *AtenderCliente(void *socket)
 			printf("Respuesta: %s\n", respuesta);
 			// Enviamos la respuesta (si hay)
 			if (codigo != 0) write (sock_conn,respuesta, strlen(respuesta));
+
+			if (codigo == 1 || codigo == 2 || codigo == 3)
+			{
+				pthread_mutex_lock(&mutex); // No interrumpir a partir de ahora
+				contador++; // Incrementamos el contador de servicios
+				pthread_mutex_unlock(&mutex); // Ya se puede interrumpir
+			} 
 		}
 		// Se acabo el servicio para este cliente
 		close(sock_conn);	
@@ -102,6 +117,7 @@ int main(int argc, char *argv[])
 	if (listen(sock_listen, 4) < 0)
 		printf("Error en el Listen\n");
 
+	contador = 0;
 	int i;
 	int sockets[100];
 	pthread_t thread;

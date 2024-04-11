@@ -38,6 +38,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.Longitud = new System.Windows.Forms.RadioButton();
             this.Bonito = new System.Windows.Forms.RadioButton();
+            this.button4 = new System.Windows.Forms.Button();
+            this.labelServicios = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,7 +73,9 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.groupBox1.Controls.Add(this.labelServicios);
             this.groupBox1.Controls.Add(this.Alto);
+            this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.alturaBox);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button1);
@@ -82,7 +86,7 @@
             this.groupBox1.Controls.Add(this.nombre);
             this.groupBox1.Location = new System.Drawing.Point(12, 114);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(363, 282);
+            this.groupBox1.Size = new System.Drawing.Size(564, 282);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Peticion";
@@ -110,7 +114,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(235, 38);
+            this.button3.Location = new System.Drawing.Point(153, 38);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(113, 38);
             this.button3.TabIndex = 10;
@@ -120,7 +124,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(33, 38);
+            this.button1.Location = new System.Drawing.Point(28, 38);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(119, 38);
             this.button1.TabIndex = 9;
@@ -151,6 +155,25 @@
             this.Bonito.Text = "Dime si mi nombre es bonito";
             this.Bonito.UseVisualStyleBackColor = true;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(346, 53);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(121, 34);
+            this.button4.TabIndex = 7;
+            this.button4.Text = "Numero de Servicios";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // labelServicios
+            // 
+            this.labelServicios.AutoSize = true;
+            this.labelServicios.Location = new System.Drawing.Point(483, 63);
+            this.labelServicios.Name = "labelServicios";
+            this.labelServicios.Size = new System.Drawing.Size(0, 13);
+            this.labelServicios.TabIndex = 8;
+            this.labelServicios.Click += new System.EventHandler(this.label1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -178,6 +201,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox alturaBox;
         private System.Windows.Forms.RadioButton Alto;
+        private System.Windows.Forms.Label labelServicios;
+        private System.Windows.Forms.Button button4;
     }
 }
 
